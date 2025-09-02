@@ -1,0 +1,20 @@
+cc_binary(
+        name="src",
+        srcs = ["main.cpp"],
+        deps = ["@sfml"],
+        copts = ["-std=c++17"],
+        linkopts = [
+        "-ludev",
+        "-lX11",
+        "-lXrandr",
+        "-lXcursor",
+        "-lXinerama",
+        "-lXi",
+        "-lpthread",
+        "-ldl",
+        "-lfreetype",
+        "-ljpeg",
+        "-lopenal",
+        "-lsndfile",
+        ],
+)
