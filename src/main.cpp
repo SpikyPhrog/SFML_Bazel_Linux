@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "tools/cpp/runfiles/runfiles.h"
+#include "consts.h"
 
 using bazel::tools::cpp::runfiles::Runfiles;
 
@@ -14,7 +15,8 @@ int main(int argc, char** argv)
 
     if(runfiles != nullptr)
     {
-        fontPath = runfiles->Rlocation("_main/src/assets/fonts/Hack-Regular.ttf");
+        std::string rloc = "_main/";
+        fontPath = runfiles->Rlocation(rloc + fontRegular);
     }
 
     sf::Font font(fontPath);

@@ -1,6 +1,6 @@
 cc_binary(
     name = "src",
-    srcs = ["main.cpp"],
+    srcs = glob(["*.cpp", "*.h"]) + ["//src/Systems:systems", "//src/Widgets:widgets"],
     deps = [
         "@sfml",
         "@bazel_tools//tools/cpp/runfiles",
