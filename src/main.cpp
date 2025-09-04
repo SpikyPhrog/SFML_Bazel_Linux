@@ -1,7 +1,30 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "tools/cpp/runfiles/runfiles.h"
 
-int main()
+using bazel::tools::cpp::runfiles::Runfiles;
+
+int main(int argc, char** argv)
 {
+
+    std::string error;
+
+    Runfiles* runfiles = Runfiles::Create(argv[0], &error);
+    std::string fontPath = "";
+
+    if(runfiles != nullptr)
+    {
+        fontPath = runfiles->Rlocation("_main/src/assets/fonts/Hack-Regular.ttf");
+    }
+
+    sf::Font font(fontPath);
+
+    sf::Text text(font);
+    text.setCharacterSize(24);
+    text.setFillColor(sf::Color::Green);
+    text.setString("Hello");
+
+
     // create the window
     sf::RenderWindow window(sf::VideoMode({800, 600}), "My window");
 
@@ -20,7 +43,7 @@ int main()
         window.clear(sf::Color::Black);
 
         // draw everything here...
-        // window.draw(...);
+        window.draw(text);
 
         // end the current frame
         window.display();

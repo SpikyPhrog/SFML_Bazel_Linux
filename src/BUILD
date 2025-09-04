@@ -1,9 +1,15 @@
 cc_binary(
-        name="src",
-        srcs = ["main.cpp"],
-        deps = ["@sfml"],
-        copts = ["-std=c++17"],
-        linkopts = [
+    name = "src",
+    srcs = ["main.cpp"],
+    deps = [
+        "@sfml",
+        "@bazel_tools//tools/cpp/runfiles",
+    ],
+    data = [
+        "//src/assets:assets"
+    ],
+    copts = ["-std=c++17"],
+    linkopts = [
         "-ludev",
         "-lX11",
         "-lXrandr",
@@ -16,5 +22,5 @@ cc_binary(
         "-ljpeg",
         "-lopenal",
         "-lsndfile",
-        ],
+    ],
 )
