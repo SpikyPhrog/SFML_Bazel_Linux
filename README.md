@@ -49,7 +49,10 @@ Thank you for checking this out and good luck with your future projects
         srcs = glob(["*.h", "*.cpp"]), # makes sure that this rule would include all the source code that your folder would contain
     )
 ```
-And whenever you create such dir and build file, make sure you add that folder in the
+
+
+    - And whenever you create such dir and build file, make sure you add that folder in the
+
 
 ```
     srcs = glob(["*.cpp", "*.h"]) + ["//src/_NameOfFolder_:_NameOfThe"Rule""], # the name of the rule is the name that you've put in the "filename(name = "...")"
